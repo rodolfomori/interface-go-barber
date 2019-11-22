@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import history from '~/services/history';
 import api from '~/services/api';
 
-import { singInSucess, signFailure } from './actions';
+import { singInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
@@ -24,7 +24,7 @@ export function* signIn({ payload }) {
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    yield put(singInSucess(token, user));
+    yield put(singInSuccess(token, user));
 
     history.push('/dashboard');
   } catch (err) {
